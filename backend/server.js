@@ -9,7 +9,18 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
+
+// For development
+// app.use(cors());
+
+// For production:
+app.use(
+  cors({
+    origin: "https://mern-workshop-jecknnqj4-yashkhatpes-projects.vercel.app",
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true, // Allow cookies if needed
+  })
+);
 
 // Routes
 app.use('/api/notes', noteRoutes);
