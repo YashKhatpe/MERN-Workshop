@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 
-const API_URL = "http://localhost:5000/api/notes";
+const API_URL = import.meta.env.VITE_BACKEND_URL;;
 
 const Notes =() =>{
   const [notes, setNotes] = useState([]);
