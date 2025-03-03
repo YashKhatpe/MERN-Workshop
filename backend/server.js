@@ -16,7 +16,7 @@ app.use(express.json());
 // For production:
 app.use(
   cors({
-    origin: "https://mern-workshop-jecknnqj4-yashkhatpes-projects.vercel.app",
+    origin: "https://mern-workshop-beryl.vercel.app",
     methods: "GET,POST,PUT,DELETE",
     credentials: true, // Allow cookies if needed
   })
