@@ -13,7 +13,7 @@ const Navbar = () => {
           </a>
           
           <div className="nav-links">
-            <a href="#" className="nav-link active">Home</a>
+            <a href="/" className="nav-link active">Home</a>
             <a href="/notes" className="nav-link">My Notes</a>
             <a href="#" className="nav-link">Categories</a>
             {!user ? (
