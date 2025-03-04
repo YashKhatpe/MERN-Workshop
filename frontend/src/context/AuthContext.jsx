@@ -3,13 +3,14 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
+const API_URL = import.meta.env.MODE === 'development' ? 'http://localhost:5000' : import.meta.env.VITE_BACKEND_URL;
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
 
   useEffect(() => {
     if (token) {
-      axios.get("http://localhost:5000/api/auth/me", {
+      axios.get(`${API_URL}/api/auth/me`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setUser(res.data))
@@ -19,7 +20,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", { email, password });
+      const res = await axios.post(`${API_URL}/api/auth/login`, { email, password });
       setToken(res.data.token);
       localStorage.setItem("token", res.data.token);
       return res.data.status; // Return the status code (200)
@@ -30,7 +31,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const signup = async (name, email, password) => {
-    await axios.post("http://localhost:5000/api/auth/register", {name, email, password});
+    await axios.post(`${API_URL}/api/auth/register`, {name, email, password});
   }
 
   const logout = () => {
