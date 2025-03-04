@@ -4,6 +4,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const noteRoutes = require('./routes/noteRoutes');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -14,16 +15,26 @@ app.use(express.json());
 // app.use(cors());
 
 // For production:
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://mern-workshop-beryl.vercel.app"
+]
 app.use(
   cors({
-    origin: "https://mern-workshop-beryl.vercel.app",
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true, // Allow cookies if needed
+    origin: (origin, callback) => {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
 
 // Routes
 app.use('/api/notes', noteRoutes);
+app.use("/api/auth", authRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI, {

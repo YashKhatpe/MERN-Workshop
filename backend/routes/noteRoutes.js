@@ -1,72 +1,64 @@
-const express = require('express');
-const Note = require('../models/Note');
+const express = require("express");
+const Note = require("../models/Note");
+const auth = require("../middleware/auth"); // Import auth middleware
 
 const router = express.Router();
 
-// GET all notes
-router.get('/', async (req, res) => {
-    try {
-        const notes = await Note.find();
-        res.json(notes);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
-});
-
-
-// POST a new note
-router.post('/', async (req, res) => {
+// **Create a Note**
+router.post("/add", auth, async (req, res) => {
+  try {
     const { title, content } = req.body;
-    try {
-        const newNote = new Note({ title, content });
-        await newNote.save();
-        res.status(201).json(newNote);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+    const newNote = new Note({ user: req.user, title, content });
+    await newNote.save();
+    res.json(newNote);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
-// PUT a new note
-router.put('/:id', async (req, res) => {
-    const { title, content } = req.body;
-    try {
-        const updatedNote = await Note.findByIdAndUpdate(
-            req.params.id, 
-            {title, content, updatedAt: new Date()},
-            {new : true}
-        );
-
-        if(!updatedNote) return res.status(404).json({error: "Note not found"});
-
-        res.status(201).json(updatedNote);
-
-        
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+// **Get All Notes for Logged-in User**
+router.get("/", auth, async (req, res) => {
+  try {
+    const notes = await Note.find({ user: req.user }).sort({ createdAt: -1 });
+    res.json(notes);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
+// **Update a Note**
+router.put("/:id", auth, async (req, res) => {
+  try {
+    let note = await Note.findById(req.params.id);
+    if (!note) return res.status(404).json({ msg: "Note not found" });
 
-// GET a note matching to its id
-router.get('/:id', async (req, res) => {
-    try {
-        const note = await Note.findById(req.params.id);
-        if(!note) return res.json({message: "No note found"});
-        res.json(note);
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+    if (note.user.toString() !== req.user)
+      return res.status(403).json({ msg: "Not authorized" });
+
+    note.title = req.body.title || note.title;
+    note.content = req.body.content || note.content;
+
+    await note.save();
+    res.json(note);
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
+// **Delete a Note**
+router.delete("/:id", auth, async (req, res) => {
+  try {
+    let note = await Note.findById(req.params.id);
+    if (!note) return res.status(404).json({ msg: "Note not found" });
 
-// DELETE a note
-router.delete('/:id', async (req, res) => {
-    try {
-        await Note.findByIdAndDelete(req.params.id);
-        res.json({ message: "Note deleted" });
-    } catch (err) {
-        res.status(500).json({ error: err.message });
-    }
+    if (note.user.toString() !== req.user)
+      return res.status(403).json({ msg: "Not authorized" });
+
+    await note.deleteOne();
+    res.json({ msg: "Note deleted" });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
 
 module.exports = router;
