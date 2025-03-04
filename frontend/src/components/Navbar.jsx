@@ -15,7 +15,7 @@ const Navbar = () => {
           <div className="nav-links">
             <a href="/" className="nav-link active">Home</a>
             <a href="/notes" className="nav-link">My Notes</a>
-            <a href="#" className="nav-link">Categories</a>
+            <a href="#" className="nav-link">About Us</a>
             {!user ? (
           <>
             <Link to="/login" className="nav-link">Login</Link>
