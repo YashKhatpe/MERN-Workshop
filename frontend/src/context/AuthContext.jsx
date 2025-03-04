@@ -3,7 +3,8 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-const API_URL = import.meta.env.MODE === 'prodcution' ? import.meta.env.VITE_BACKEND_URL : 'http://localhost:5000';
+// const API_URL = import.meta.env.MODE === 'prodcution' ? import.meta.env.VITE_BACKEND_URL : 'http://localhost:5000';
+const API_URL = import.meta.env.VITE_BACKEND_URL;
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(localStorage.getItem("token") || "");
