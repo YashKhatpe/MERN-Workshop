@@ -77,5 +77,57 @@ Having a solid grasp of these topics will make it easier to build full-stack app
 
 ---
 
+# Day 2: Express.js & MongoDB Integration
+
+## 🎯 Goal: Connect Express.js with MongoDB and enable CRUD operations.
+
+---
+
+## 🛠️ Topics to Cover (With Depth Levels)
+
+### 1️⃣ MongoDB & Mongoose Setup (30-40 min)
+| Topic | Depth | Notes |
+|--------|--------|--------|
+| What is MongoDB? | 5-10 min overview | Explain NoSQL vs SQL, advantages of MongoDB |
+| Setting up MongoDB (Local/Atlas) | Hands-on | Install MongoDB locally or use MongoDB Atlas |
+| Installing Mongoose | Hands-on | `npm install mongoose` |
+| Connecting MongoDB with Express | Hands-on | Create a connection using Mongoose |
+
+📌 **Hands-on Exercise:** Connect a Node.js app with MongoDB and verify the connection.
+
+---
+
+### 2️⃣ Building a Notes API (45-60 min)
+| Topic | Depth | Notes |
+|--------|--------|--------|
+| Creating a Notes Schema | Hands-on | Define `title` and `content` fields in Mongoose |
+| Creating Routes (CRUD) | Hands-on | Implement GET, POST, PUT, DELETE |
+| Validations & Error Handling | Cover Basic | Ensure required fields, handle errors |
+| Testing API with Postman | Hands-on | Test CRUD operations |
+
+📌 **Hands-on Exercise:** Build an API where users can create, read, update, and delete notes.
+
+---
+
+### 3️⃣ Connecting Frontend to Backend (45 min)
+| Topic | Depth | Notes |
+|--------|--------|--------|
+| Fetching Notes from MongoDB | Hands-on | Use `axios.get` in React to fetch notes |
+| Adding Notes to MongoDB | Hands-on | Use `axios.post` to add notes |
+| Updating & Deleting Notes | Hands-on | Implement `axios.put` and `axios.delete` |
+
+📌 **Hands-on Exercise:** Modify the React frontend to persist notes in MongoDB via Express.js API.
+
+---
+
+## 🚀 End of Day 2: What Should Be Achieved?
+✅ **MongoDB Setup:** Participants can set up MongoDB and connect it to Express.
+✅ **CRUD API:** Users can create, read, update, and delete notes via API.
+✅ **Full-Stack Integration:** React app fetches and modifies data stored in MongoDB.
+
+🎯 **Next Steps:** Implement authentication and authorization on Day 3! 🔐
+
+
+
 Happy Coding! 🚀
 
