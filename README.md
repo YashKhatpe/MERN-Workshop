@@ -1,5 +1,32 @@
 # MERN Stack Workshop
 
+### JavaScript Required for Learning MERN Stack
+
+To effectively learn and work with the MERN stack, you should have a strong understanding of the following JavaScript concepts:
+
+- **map()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)
+- **filter()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+- **reduce()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce)
+- **forEach()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- **find()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- **includes()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes)
+- **async/await** - [Learn more](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Promises)
+- **.then()/.catch()** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
+- **Promises** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- **ES6 Modules (import/export)** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules)
+- **Destructuring** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)
+- **Spread and Rest Operators** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
+- **Arrow Functions** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
+- **Closures** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures)
+- **Hoisting** - [Learn more](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting)
+- **Event Loop & Callbacks** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop)
+- **Prototype & Prototypal Inheritance** - [Learn more](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Inheritance)
+- **Local Storage & Session Storage** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage)
+- **fetch API & Axios** - [Learn more](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API)
+- **Debouncing & Throttling** - [Learn more](https://www.freecodecamp.org/news/debounce-and-throttle-in-javascript/)
+
+Having a solid grasp of these topics will make it easier to build full-stack applications using MongoDB, Express.js, React, and Node.js.
+
 ## Part 1: React.js (Frontend)
 
 ### 🔹 Goal: Set up a basic React app with vite.
